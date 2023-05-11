@@ -3,7 +3,7 @@
 class ListingBasic
 {
     private $id, $title, $website, $email, $twitter;
-    private $status = 'basic';
+    protected $status = 'basic';
 
     /**
      * ListingBasic constructor.
