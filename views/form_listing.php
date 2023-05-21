@@ -15,6 +15,18 @@
     </select>
 </div>
 <div class="form-group input-group">
+    <label class="control-label" for="description">Description</label>
+    Allowed Tags: <?php echo ListingPremium::displayAllowedTags(); ?>
+    <br>
+   <textarea class=:form-control" name="description" id="description">
+        <?php
+            if(is_a($listing, 'ListingPremium')){
+                echo $listing->getDescription();
+            }
+        ?>
+    </textarea>
+</div>
+<div class="form-group input-group">
     <label class="control-label" for="website">Website</label>
     <input class="form-control" type="text" name="website" id="website" placeholder="Enter a Website" value="<?php echo $listing->getWebsite(); ?>"  size="30" />
 </div>

@@ -2,7 +2,7 @@
 
 class Collection
 {
-    private $statuses = ['basic', 'inactive'];
+    private $statuses = ['premium', 'basic', 'inactive'];
     private $db;
     // array of listing objects
     public $listings = [];
@@ -124,7 +124,8 @@ class Collection
         }
         $sql = substr($sql, 0, -2);
         $sql .= ' WHERE id = :id';
-
+        //echo $sql;
+        //exit;
         try {
             $statement = $this->db->prepare($sql);
             $statement->execute($data);

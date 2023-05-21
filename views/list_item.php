@@ -1,5 +1,13 @@
 <?php
-echo '<div class="listing panel panel-default">' . PHP_EOL;
+echo '<div class="listing panel ';
+switch ($listing->getStatus()) {
+    case 'premium':
+        echo 'panel-info';
+        break;
+    default:
+        echo 'panel-default';
+} 
+echo '">' . PHP_EOL;
     echo '<div class="panel-heading">';
         echo '<div class="input-group">' . PHP_EOL;
             echo '<h3 class="panel-title">' . $listing->getTitle() . '</h3>' . PHP_EOL;
@@ -18,6 +26,9 @@ echo '<div class="listing panel panel-default">' . PHP_EOL;
 
     echo '</div>';
     echo '<div class="panel-body">';
+    if(is_a($listing, 'ListingPremium') && !empty($listing->getDescription())){
+        echo '<p>' . $listing->getDescription() . '</p>';
+    }
     echo '<p>' . PHP_EOL;
 if (!empty($listing->getWebsite())) {
     echo ' <a href="' . $listing->getWebsite() . '" target="_blank">' . $listing->getWebsite() . '</a> | ' . PHP_EOL;
