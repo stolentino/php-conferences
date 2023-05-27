@@ -4,6 +4,9 @@ switch ($listing->getStatus()) {
     case 'premium':
         echo 'panel-info';
         break;
+    case 'inactive':
+        echo 'panel-danger';
+        break;
     default:
         echo 'panel-default';
 } 
